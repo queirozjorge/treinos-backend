@@ -4,7 +4,7 @@ import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
 import br.com.jrqtech.treinos.models.Entities.Exercicio;
 import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
 import br.com.jrqtech.treinos.models.dto.ExercicioResponse;
-import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
+import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import br.com.jrqtech.treinos.repositories.ExercicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +24,14 @@ public class ExercicioService {
                 .collect(Collectors.toList());
     }
 
-    public List<ExercicioResponse> buscaExerciciosPorGrupoMuscular(GrupoMuscular grupoMuscular) {
+    public List<ExercicioResponse> buscaExerciciosPorGrupoMuscular(GrupoMuscularEnum grupoMuscular) {
         return exercicioRepository.findByGrupoMuscular(grupoMuscular).stream()
                 .map(ex -> ExercicioResponse.getByEntity(ex))
                 .collect(Collectors.toList());
+    }
+
+    public List<Exercicio> buscaExercicio(List<Long> ids) {
+        return exercicioRepository.findAllById(ids);
     }
 
     public ExercicioResponse cadastrarNovoExercicio(ExercicioRequest exercicio) {
@@ -39,5 +43,10 @@ public class ExercicioService {
         exercicioEntity.setDescricao(exercicio.getDescricao());
         exercicioEntity.setGrupoMuscular(exercicio.getGrupoMuscular());
         return ExercicioResponse.getByEntity(exercicioRepository.save(exercicioEntity));
+    }
+
+    public void deletarExercicio(Long id) {
+        Exercicio exercicioEntity = exercicioRepository.findById(id).orElseThrow(() -> new InvalidRequestException("Exercício não encontrado"));
+        exercicioRepository.delete(exercicioEntity);
     }
 }
