@@ -2,7 +2,7 @@ package br.com.jrqtech.treinos.controllers;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
 import br.com.jrqtech.treinos.models.Entities.Usuario;
-import br.com.jrqtech.treinos.models.dto.LoginDTO;
+import br.com.jrqtech.treinos.models.dto.LoginRequest;
 import br.com.jrqtech.treinos.services.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public class AuthController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity login(@RequestBody LoginDTO login) {
+    public ResponseEntity login(@RequestBody LoginRequest login) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                 new UsernamePasswordAuthenticationToken(login.getEmail(), login.getPassword());
         try {

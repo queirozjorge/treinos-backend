@@ -1,6 +1,9 @@
 package br.com.jrqtech.treinos.services;
 
-import br.com.jrqtech.treinos.models.dto.ExercicioDTO;
+import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
+import br.com.jrqtech.treinos.models.Entities.Exercicio;
+import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
+import br.com.jrqtech.treinos.models.dto.ExercicioResponse;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
 import br.com.jrqtech.treinos.repositories.ExercicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +18,26 @@ public class ExercicioService {
     @Autowired
     private ExercicioRepository exercicioRepository;
 
-    public List<ExercicioDTO> buscaExercicios() {
+    public List<ExercicioResponse> buscaExercicios() {
         return exercicioRepository.findAll().stream()
-                .map(ex -> ExercicioDTO.getByEntity(ex))
+                .map(ex -> ExercicioResponse.getByEntity(ex))
                 .collect(Collectors.toList());
     }
 
-    public List<ExercicioDTO> buscaExerciciosPorGrupoMuscular(GrupoMuscular grupoMuscular) {
+    public List<ExercicioResponse> buscaExerciciosPorGrupoMuscular(GrupoMuscular grupoMuscular) {
         return exercicioRepository.findByGrupoMuscular(grupoMuscular).stream()
-                .map(ex -> ExercicioDTO.getByEntity(ex))
+                .map(ex -> ExercicioResponse.getByEntity(ex))
                 .collect(Collectors.toList());
     }
 
+    public ExercicioResponse cadastrarNovoExercicio(ExercicioRequest exercicio) {
+        return ExercicioResponse.getByEntity(exercicioRepository.save(Exercicio.getByRequest(exercicio)));
+    }
+
+    public ExercicioResponse atualizarExercicio(Long id, ExercicioRequest exercicio) {
+        Exercicio exercicioEntity = exercicioRepository.findById(id).orElseThrow(() -> new InvalidRequestException("Exercício não encontrado"));
+        exercicioEntity.setDescricao(exercicio.getDescricao());
+        exercicioEntity.setGrupoMuscular(exercicio.getGrupoMuscular());
+        return ExercicioResponse.getByEntity(exercicioRepository.save(exercicioEntity));
+    }
 }
