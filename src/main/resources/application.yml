@@ -1,0 +1,13 @@
+server.port: 8090
+
+spring.application.name: treinos
+spring.datasource.url: jdbc:mariadb://localhost:3306/treinos
+spring.datasource.username: root
+spring.datasource.password: root
+spring.datasource.driver-class-name: org.mariadb.jdbc.Driver
+spring.jpa.hibernate.ddl-auto: update
+
+security:
+  auth:
+    algorithm: ${SECURITY_AUTH_ALGORITHM:clientsecretkey}
+    issuer: ${SECURITY_AUTH_ISSUER:login}
