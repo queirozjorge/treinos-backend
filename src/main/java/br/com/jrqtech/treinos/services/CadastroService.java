@@ -2,7 +2,7 @@ package br.com.jrqtech.treinos.services;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
 import br.com.jrqtech.treinos.models.Entities.Usuario;
-import br.com.jrqtech.treinos.models.dto.CadastroDTO;
+import br.com.jrqtech.treinos.models.dto.CadastroRequest;
 import br.com.jrqtech.treinos.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,7 +20,7 @@ public class CadastroService {
 
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public void cadastrarUsuario(CadastroDTO cadastro) {
+    public void cadastrarUsuario(CadastroRequest cadastro) {
 
         Usuario usuario = usuarioRepository.findByEmail(cadastro.getEmail());
 

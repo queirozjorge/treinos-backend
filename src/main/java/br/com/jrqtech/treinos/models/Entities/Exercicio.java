@@ -1,5 +1,7 @@
 package br.com.jrqtech.treinos.models.Entities;
 
+import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
+import br.com.jrqtech.treinos.models.dto.ExercicioResponse;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularConverter;
 import jakarta.persistence.*;
@@ -24,4 +26,10 @@ public class Exercicio {
     @Convert(converter = GrupoMuscularConverter.class)
     private GrupoMuscular grupoMuscular;
 
+    public static Exercicio getByRequest(ExercicioRequest exercicio) {
+        return Exercicio.builder()
+                .descricao(exercicio.getDescricao())
+                .grupoMuscular(exercicio.getGrupoMuscular())
+                .build();
+    }
 }

@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.controllers;
 
-import br.com.jrqtech.treinos.models.dto.CadastroDTO;
+import br.com.jrqtech.treinos.models.dto.CadastroRequest;
 import br.com.jrqtech.treinos.services.CadastroService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class CadastroController {
     private CadastroService cadastroService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity cadastro(@RequestBody @Valid CadastroDTO cadastro) {
+    public ResponseEntity cadastro(@RequestBody @Valid CadastroRequest cadastro) {
         cadastroService.cadastrarUsuario(cadastro);
         return ResponseEntity.noContent().build();
     }
