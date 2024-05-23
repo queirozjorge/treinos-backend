@@ -1,8 +1,7 @@
 package br.com.jrqtech.treinos.models.Entities;
 
 import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
-import br.com.jrqtech.treinos.models.dto.ExercicioResponse;
-import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
+import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularConverter;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,7 +23,7 @@ public class Exercicio {
 
     @Column(name = "grupo_muscular")
     @Convert(converter = GrupoMuscularConverter.class)
-    private GrupoMuscular grupoMuscular;
+    private GrupoMuscularEnum grupoMuscular;
 
     public static Exercicio getByRequest(ExercicioRequest exercicio) {
         return Exercicio.builder()

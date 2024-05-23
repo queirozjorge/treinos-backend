@@ -1,7 +1,7 @@
 package br.com.jrqtech.treinos.models.dto;
 
 import br.com.jrqtech.treinos.models.Entities.Exercicio;
-import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
+import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -17,7 +17,7 @@ public class ExercicioResponse {
     private String descricao;
 
     @JsonProperty("grupo_muscular")
-    private GrupoMuscular grupoMuscular;
+    private GrupoMuscularEnum grupoMuscular;
 
     public static ExercicioResponse getByEntity(Exercicio exercicio) {
         return ExercicioResponse.builder()

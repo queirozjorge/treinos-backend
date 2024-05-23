@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.Arrays;
 
-public enum GrupoMuscular {
+public enum GrupoMuscularEnum {
 
     PEITO(1),
     COSTAS(2),
@@ -20,7 +20,7 @@ public enum GrupoMuscular {
 
     private int id;
 
-    GrupoMuscular(int id) {
+    GrupoMuscularEnum(int id) {
         this.id = id;
     }
 
@@ -30,11 +30,11 @@ public enum GrupoMuscular {
     }
 
     @JsonCreator
-    public static GrupoMuscular get(int id) {
-        return Arrays.stream(GrupoMuscular.values())
+    public static GrupoMuscularEnum get(int id) {
+        return Arrays.stream(GrupoMuscularEnum.values())
                 .filter(grupo -> grupo.id == id)
                 .findFirst()
-                .orElseThrow(() -> new EnumNotFoundException("Grupo muscular não existe"));
+                .orElseThrow(() -> new EnumNotFoundException("Código do grupo muscular não existe"));
     }
 
 }

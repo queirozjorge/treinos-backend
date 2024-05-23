@@ -4,10 +4,10 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class GrupoMuscularConverter implements AttributeConverter<GrupoMuscular, Integer> {
+public class GrupoMuscularConverter implements AttributeConverter<GrupoMuscularEnum, Integer> {
 
     @Override
-    public Integer convertToDatabaseColumn(GrupoMuscular grupoMuscular) {
+    public Integer convertToDatabaseColumn(GrupoMuscularEnum grupoMuscular) {
         if (grupoMuscular == null) {
             return null;
         }
@@ -15,10 +15,10 @@ public class GrupoMuscularConverter implements AttributeConverter<GrupoMuscular,
     }
 
     @Override
-    public GrupoMuscular convertToEntityAttribute(Integer id) {
+    public GrupoMuscularEnum convertToEntityAttribute(Integer id) {
         if (id == null) {
             return null;
         }
-        return GrupoMuscular.get(id);
+        return GrupoMuscularEnum.get(id);
     }
 }

@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.models.dto;
 
-import br.com.jrqtech.treinos.models.enums.GrupoMuscular;
+import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -18,6 +18,6 @@ public class ExercicioRequest {
 
     @NotNull(message = "Grupo muscular obrigatório")
     @JsonProperty("grupo_muscular")
-    private GrupoMuscular grupoMuscular;
+    private GrupoMuscularEnum grupoMuscular;
 
 }
