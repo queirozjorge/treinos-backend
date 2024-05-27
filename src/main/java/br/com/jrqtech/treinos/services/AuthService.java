@@ -1,6 +1,5 @@
 package br.com.jrqtech.treinos.services;
 
-import br.com.jrqtech.treinos.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,11 +10,11 @@ import org.springframework.stereotype.Service;
 public class AuthService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return usuarioRepository.findByEmail(email);
+        return usuarioService.buscarPorEmail(email);
     }
 
 }
