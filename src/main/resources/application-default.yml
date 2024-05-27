@@ -1,0 +1,27 @@
+server.port: 8090
+spring.application.name: treinos
+
+spring.datasource.url: ${DATABASE_URL:jdbc:mariadb://localhost:3306/treinos}
+spring.datasource.username: ${DATABASE_USERNAME:root}
+spring.datasource.password: ${DATABASE_PASSWORD:root}
+spring.datasource.driver-class-name: org.mariadb.jdbc.Driver
+spring.jpa.hibernate.ddl-auto: update
+
+security:
+  auth:
+    algorithm: ${SECURITY_AUTH_ALGORITHM:clientsecretkey}
+    issuer: ${SECURITY_AUTH_ISSUER:login}
+
+spring:
+  mail:
+    host: ${SPRING_MAIL_HOST:smtp.gmail.com}
+    port: ${SPRING_MAIL_PORT:587}
+    username: ${SPRING_MAIL_USERNAME:jorge.jpeg@gmail.com}
+    password: ${SPRING_MAIL_PASSWORD:lthe mjbp wopl lzvc}
+    properties:
+      mail:
+        smtp:
+          auth: ${SPRING_MAIL_AUTH:true}
+          starttls:
+            enable: ${SPRING_MAIL_TLS_ENABLE:true}
+            required: ${SPRING_MAIL_TLS_REQUIRED:true}

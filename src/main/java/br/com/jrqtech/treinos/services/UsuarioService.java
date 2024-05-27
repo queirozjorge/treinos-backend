@@ -24,6 +24,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id).orElseThrow(() -> new InvalidRequestException("Usuário não encontrado"));
     }
 
+    public Usuario buscarPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(() -> new InvalidRequestException("Email não encontrado"));
+    }
+
     public UsuarioResponse atualizarUsuario(String id, UsuarioRequest usuarioRequest) {
         Usuario usuario = usuarioRepository.findById(UUID.fromString(id)).orElseThrow(() -> new InvalidRequestException("Usuário não encontrado"));
         usuario.setDataNascimento(LocalDate.parse(usuarioRequest.getDataNascimento(), formatter));
@@ -31,4 +35,5 @@ public class UsuarioService {
         usuario.setSobrenome(usuarioRequest.getSobrenome());
         return UsuarioResponse.getByEntity(usuarioRepository.save(usuario));
     }
+
 }

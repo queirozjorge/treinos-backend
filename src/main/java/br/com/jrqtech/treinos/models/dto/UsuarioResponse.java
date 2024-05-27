@@ -3,9 +3,6 @@ package br.com.jrqtech.treinos.models.dto;
 import br.com.jrqtech.treinos.models.Entities.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 import java.time.LocalDate;

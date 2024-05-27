@@ -22,10 +22,8 @@ public class CadastroService {
 
     public void cadastrarUsuario(CadastroRequest cadastro) {
 
-        Usuario usuario = usuarioRepository.findByEmail(cadastro.getEmail());
-
-        if(Objects.nonNull(usuario))
-            throw new InvalidRequestException("Email já cadastrado");
+        usuarioRepository.findByEmail(cadastro.getEmail())
+                .ifPresent(email -> new InvalidRequestException("Email já cadastrado"));
 
         usuarioRepository.save(
                 Usuario.builder()
