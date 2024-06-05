@@ -3,6 +3,7 @@ package br.com.jrqtech.treinos.controllers;
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
 import br.com.jrqtech.treinos.models.Entities.Usuario;
 import br.com.jrqtech.treinos.models.dto.LoginRequest;
+import br.com.jrqtech.treinos.models.dto.LoginResponse;
 import br.com.jrqtech.treinos.services.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,12 @@ public class AuthController {
         try {
             Authentication authenticate = this.authenticationManager.authenticate(usernamePasswordAuthenticationToken);
             var usuario = (Usuario) authenticate.getPrincipal();
-            return ResponseEntity.ok().header("token", tokenService.gerarToken(usuario)).build();
+            return ResponseEntity.ok(
+                    LoginResponse.builder()
+                            .token(tokenService.gerarToken(usuario))
+                            .name(usuario.getUsername())
+                            .build()
+            );
         } catch (Exception e) {
             throw new InvalidRequestException("Falha ao realizar login");
         }

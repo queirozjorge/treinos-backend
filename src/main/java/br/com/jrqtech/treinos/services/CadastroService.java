@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class CadastroService {
@@ -22,17 +22,21 @@ public class CadastroService {
 
     public void cadastrarUsuario(CadastroRequest cadastro) {
 
-        usuarioRepository.findByEmail(cadastro.getEmail())
-                .ifPresent(email -> new InvalidRequestException("Email já cadastrado"));
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(cadastro.getEmail());
 
-        usuarioRepository.save(
-                Usuario.builder()
-                    .nome(cadastro.getNome())
-                    .sobrenome(cadastro.getSobrenome())
-                    .password(encode(cadastro.getPassword()))
-                    .email(cadastro.getEmail())
-                    .dataNascimento(LocalDate.parse(cadastro.getDataNascimento(), formatter))
-                    .build());
+        if(usuario.isEmpty()) {
+            usuarioRepository.save(
+                    Usuario.builder()
+                        .nome(cadastro.getNome())
+                        .sobrenome(cadastro.getSobrenome())
+                        .password(encode(cadastro.getPassword()))
+                        .email(cadastro.getEmail())
+                        .dataNascimento(LocalDate.parse(cadastro.getDataNascimento(), formatter))
+                        .build());
+        } else {
+            throw new InvalidRequestException("Email já cadastrado");
+        }
+
     }
 
     private String encode(String senha) {
