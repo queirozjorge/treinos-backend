@@ -4,8 +4,13 @@ spring.application.name: treinos
 spring.datasource.url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/treinos}
 spring.datasource.username: ${DATABASE_USERNAME:postgres}
 spring.datasource.password: ${DATABASE_PASSWORD:root}
-spring.datasource.driver-class-name: org.postgresql.Driver
+#spring.jpa.properties.hibernate.dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
+spring.datasource.driver-class-name: ${DRIVER_CLASS_NAME:org.mariadb.jdbc.Driver}
 spring.jpa.hibernate.ddl-auto: update
+
+cors:
+  allowed:
+    origin: ${CORS_ALLOWED_ORIGIN:http://localhost:4200}
 
 security:
   auth:
