@@ -1,7 +1,7 @@
 package br.com.jrqtech.treinos.services;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
-import br.com.jrqtech.treinos.models.Entities.Usuario;
+import br.com.jrqtech.treinos.models.entities.Usuario;
 import br.com.jrqtech.treinos.models.dto.UsuarioRequest;
 import br.com.jrqtech.treinos.models.dto.UsuarioResponse;
 import br.com.jrqtech.treinos.repositories.UsuarioRepository;
@@ -32,7 +32,6 @@ public class UsuarioService {
         Usuario usuario = usuarioRepository.findById(UUID.fromString(id)).orElseThrow(() -> new InvalidRequestException("Usuário não encontrado"));
         usuario.setDataNascimento(LocalDate.parse(usuarioRequest.getDataNascimento(), formatter));
         usuario.setNome(usuarioRequest.getNome());
-        usuario.setSobrenome(usuarioRequest.getSobrenome());
         return UsuarioResponse.getByEntity(usuarioRepository.save(usuario));
     }
 

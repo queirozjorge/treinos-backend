@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.repositories;
 
-import br.com.jrqtech.treinos.models.Entities.Usuario;
+import br.com.jrqtech.treinos.models.entities.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

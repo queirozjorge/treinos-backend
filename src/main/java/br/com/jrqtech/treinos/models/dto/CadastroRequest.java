@@ -17,16 +17,13 @@ public class CadastroRequest {
     @NotNull(message = "Nome obrigatório") @NotBlank(message = "Nome obrigatório")
     private String nome;
 
-    @NotNull(message = "Sobrenome obrigatório") @NotBlank(message = "Sobrenome obrigatório")
-    private String sobrenome;
-
     @NotNull(message = "Senha obrigatória") @NotBlank(message = "Senha obrigatória")
     private String password;
 
     @NotNull(message = "Email obrigatório") @NotBlank(message = "Email obrigatório")
     private String email;
 
-    @Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[0-2])/\\d{4}$", message = "Formato de data incorreto")
+    @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$", message = "Formato de data incorreto")
     private String dataNascimento;
 
 }

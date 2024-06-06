@@ -1,7 +1,7 @@
 package br.com.jrqtech.treinos.services;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
-import br.com.jrqtech.treinos.models.Entities.Treino;
+import br.com.jrqtech.treinos.models.entities.Treino;
 import br.com.jrqtech.treinos.models.dto.TreinoRequest;
 import br.com.jrqtech.treinos.models.dto.TreinoResponse;
 import br.com.jrqtech.treinos.repositories.TreinoRepository;

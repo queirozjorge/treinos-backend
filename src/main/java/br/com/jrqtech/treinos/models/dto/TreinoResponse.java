@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.models.dto;
 
-import br.com.jrqtech.treinos.models.Entities.Treino;
+import br.com.jrqtech.treinos.models.entities.Treino;
 import br.com.jrqtech.treinos.models.enums.DiaSemanaEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

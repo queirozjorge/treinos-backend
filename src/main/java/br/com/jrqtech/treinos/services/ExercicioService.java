@@ -1,7 +1,7 @@
 package br.com.jrqtech.treinos.services;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
-import br.com.jrqtech.treinos.models.Entities.Exercicio;
+import br.com.jrqtech.treinos.models.entities.Exercicio;
 import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
 import br.com.jrqtech.treinos.models.dto.ExercicioResponse;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
