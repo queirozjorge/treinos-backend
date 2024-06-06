@@ -1,4 +1,4 @@
-package br.com.jrqtech.treinos.models.Entities;
+package br.com.jrqtech.treinos.models.entities;
 
 import br.com.jrqtech.treinos.models.dto.TreinoRequest;
 import br.com.jrqtech.treinos.models.enums.DiaSemanaEnum;
@@ -6,8 +6,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.controllers;
 
-import br.com.jrqtech.treinos.models.Entities.Exercicio;
+import br.com.jrqtech.treinos.models.entities.Exercicio;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import br.com.jrqtech.treinos.repositories.ExercicioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

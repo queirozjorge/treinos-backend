@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.models.dto;
 
-import br.com.jrqtech.treinos.models.Entities.Usuario;
+import br.com.jrqtech.treinos.models.entities.Usuario;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.*;
@@ -25,7 +25,6 @@ public class UsuarioResponse {
     public static UsuarioResponse getByEntity(Usuario usuario) {
         return UsuarioResponse.builder()
                 .nome(usuario.getNome())
-                .sobrenome(usuario.getSobrenome())
                 .dataNascimento(usuario.getDataNascimento())
                 .build();
     }

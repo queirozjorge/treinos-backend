@@ -1,4 +1,4 @@
-package br.com.jrqtech.treinos.models.Entities;
+package br.com.jrqtech.treinos.models.entities;
 
 import br.com.jrqtech.treinos.models.dto.ExercicioRequest;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;

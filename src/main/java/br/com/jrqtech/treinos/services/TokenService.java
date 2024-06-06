@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.services;
 
-import br.com.jrqtech.treinos.models.Entities.Usuario;
+import br.com.jrqtech.treinos.models.entities.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.beans.factory.annotation.Value;

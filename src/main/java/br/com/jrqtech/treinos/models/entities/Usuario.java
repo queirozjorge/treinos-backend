@@ -1,4 +1,4 @@
-package br.com.jrqtech.treinos.models.Entities;
+package br.com.jrqtech.treinos.models.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,7 +27,6 @@ public class Usuario implements UserDetails {
     private String email;
     private String password;
     private String nome;
-    private String sobrenome;
 
     @Column(name = "data_nasc")
     private LocalDate dataNascimento;

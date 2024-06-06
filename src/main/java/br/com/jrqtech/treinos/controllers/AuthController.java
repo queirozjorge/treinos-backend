@@ -1,7 +1,7 @@
 package br.com.jrqtech.treinos.controllers;
 
 import br.com.jrqtech.treinos.exceptions.InvalidRequestException;
-import br.com.jrqtech.treinos.models.Entities.Usuario;
+import br.com.jrqtech.treinos.models.entities.Usuario;
 import br.com.jrqtech.treinos.models.dto.LoginRequest;
 import br.com.jrqtech.treinos.models.dto.LoginResponse;
 import br.com.jrqtech.treinos.services.TokenService;

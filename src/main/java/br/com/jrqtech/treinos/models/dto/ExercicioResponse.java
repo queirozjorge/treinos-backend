@@ -1,6 +1,6 @@
 package br.com.jrqtech.treinos.models.dto;
 
-import br.com.jrqtech.treinos.models.Entities.Exercicio;
+import br.com.jrqtech.treinos.models.entities.Exercicio;
 import br.com.jrqtech.treinos.models.enums.GrupoMuscularEnum;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
