@@ -18,7 +18,7 @@ public class CadastroService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public void cadastrarUsuario(CadastroRequest cadastro) {
 
