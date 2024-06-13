@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -30,6 +31,7 @@ public class CadastroService {
                         .nome(cadastro.getNome())
                         .password(encode(cadastro.getPassword()))
                         .email(cadastro.getEmail())
+                        .dataCadastro(LocalDateTime.now())
                         .dataNascimento(LocalDate.parse(cadastro.getDataNascimento(), formatter))
                         .build());
         } else {

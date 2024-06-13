@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -27,6 +28,9 @@ public class Usuario implements UserDetails {
     private String email;
     private String password;
     private String nome;
+
+    @Column(name = "data_cadastro")
+    private LocalDateTime dataCadastro;
 
     @Column(name = "data_nasc")
     private LocalDate dataNascimento;
